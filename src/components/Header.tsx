@@ -7,11 +7,7 @@ type HeaderProps = {
     dispatch: React.Dispatch<CartActions>
 }
 
-export default function Header({
-    cart,
-    dispatch,
-}: HeaderProps) {
-
+export default function Header({ cart, dispatch, }: HeaderProps) {
     // State Derivado
     const isEmpty = useMemo(() => cart.length === 0, [cart]);
     const cartTotal = useMemo(

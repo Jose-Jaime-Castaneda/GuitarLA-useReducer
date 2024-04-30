@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Guitar, CartItem } from "../types";
+import type { CartItem } from "../types";
 
 export const useCart = () => {
   const initialCart = (): CartItem[] => {
@@ -8,8 +8,6 @@ export const useCart = () => {
   };
 
   const [cart, setCart] = useState(initialCart);
-
-  const MIN_ITEMS = 1;
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

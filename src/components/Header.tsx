@@ -1,19 +1,18 @@
 import { useMemo } from "react"
 import type { CartItem, Guitar } from "../types"
+import { CartActions } from "../reducers/cart-reducer"
 
 type HeaderProps = {
     cart: CartItem[]
-    removeFromCart: (id: Guitar['id']) => void
+    dispatch: React.Dispatch<CartActions>
     decreaseQuantity: (id: Guitar['id']) => void
-    increaseQuantity: (id: Guitar['id']) => void
     clearCart: () => void
 }
 
 export default function Header({
     cart,
-    removeFromCart,
+    dispatch,
     decreaseQuantity,
-    increaseQuantity,
     clearCart,
 }: HeaderProps) {
 
@@ -80,7 +79,7 @@ export default function Header({
                                                             <button
                                                                 type="button"
                                                                 className="btn btn-dark"
-                                                                onClick={() => increaseQuantity(guitar.id)}
+                                                                onClick={() => dispatch({ type: 'increase-quantity', payload: { id: guitar.id } })}
                                                             >
                                                                 +
                                                             </button>
@@ -89,7 +88,7 @@ export default function Header({
                                                             <button
                                                                 className="btn btn-danger"
                                                                 type="button"
-                                                                onClick={() => removeFromCart(guitar.id)}
+                                                                onClick={() => dispatch({ type: 'remove-from-cart', payload: { id: guitar.id } })}
                                                             >
                                                                 X
                                                             </button>

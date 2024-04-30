@@ -5,13 +5,11 @@ import { CartActions } from "../reducers/cart-reducer"
 type HeaderProps = {
     cart: CartItem[]
     dispatch: React.Dispatch<CartActions>
-    clearCart: () => void
 }
 
 export default function Header({
     cart,
     dispatch,
-    clearCart,
 }: HeaderProps) {
 
     // State Derivado
@@ -102,7 +100,7 @@ export default function Header({
 
                                 <button
                                     className="btn btn-dark w-100 mt-3 p-2"
-                                    onClick={clearCart}
+                                    onClick={() => dispatch({ type: 'creal-cart' })}
                                 >Vaciar Carrito</button>
                             </div>
                         </div>

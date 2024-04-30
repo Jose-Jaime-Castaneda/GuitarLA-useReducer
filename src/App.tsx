@@ -15,7 +15,6 @@ function App() {
       <Header
         cart={state.cart}
         dispatch={dispatch}
-        clearCart={clearCart}
       />
 
       <main className="container-xl mt-5">

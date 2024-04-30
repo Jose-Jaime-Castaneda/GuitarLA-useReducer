@@ -98,6 +98,7 @@ export const cartReducer = (
   if (action.type === "creal-cart") {
     return {
       ...state,
+      cart: [],
     };
   }
 

@@ -6,7 +6,7 @@ import { InitialState, cartReducer } from "./reducers/cart-reducer"
 
 function App() {
 
-  const {clearCart } = useCart()
+  const {} = useCart()
 
   const [state, dispatch] = useReducer(cartReducer, InitialState)
 
